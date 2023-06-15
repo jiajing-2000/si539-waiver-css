@@ -1,0 +1,135 @@
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.logo {
+    animation: fadeIn 10s;
+}
+  
+@media (prefers-reduced-motion: reduce) {
+    .logo {
+        animation: none;
+    }
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.container figure img{
+    width: 100%;
+    height: auto;
+}
+
+.container figcaption {
+    text-transform: capitalize;
+    text-align: center;
+}
+
+@media (min-width: 535px) {
+    .container {
+        width: 375px;
+    }
+}
+
+@media (min-width: 650px) {
+    .jump:focus {
+        position: fixed;
+        top: 10px;
+      }
+      
+    .container {
+        grid-template-columns: repeat(3, 25%);
+        width: 95%;
+        justify-content: space-around;
+        background-image: url("../images/concrete_seamless.png");
+        
+    }
+
+    .container > * {
+        grid-column: span 2;
+    }
+
+    .container > :nth-child(odd) {
+        grid-column: 1/span 2;
+    }
+
+    .container > :nth-child(even) {
+        grid-column: 2/span 2;
+    }
+}
+
+@media (min-width: 750px) {
+    .container {
+        grid-template-columns: repeat(4, 20%);
+        justify-content: space-between;
+    }
+
+    .container > :nth-child(n) {
+        grid-column: span 2;
+    }
+
+    .container > :last-child {
+        grid-column: 2/span 2;
+    }
+}
+
+@media (min-width: 900px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content:space-around;
+    }
+    
+    
+    .container > :nth-child(n) {
+        width: 20%;
+    }
+
+    .container > :nth-child(4n) {
+        width: 40%;
+        border: 10px solid black;
+    }
+
+    .container > :nth-child(2) {
+        order: 1;
+    }
+}
+
+@media (min-width: 1050px) {
+    .container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        overflow: hidden;
+    }
+
+    
+    .container > :nth-child(n) {
+        width: 75%;
+        margin-bottom: 20px;
+        order: 0;
+        grid-column: auto;
+    }
+
+    .container > :nth-child(odd) {
+        transform: rotate(-15deg);
+    }
+
+    .container > :nth-child(even) {
+        transform: rotate(15deg);
+    }
+    .container > :last-child{
+        grid-column: 1/span 2;
+        transform: rotate(0deg);
+    }
+}
